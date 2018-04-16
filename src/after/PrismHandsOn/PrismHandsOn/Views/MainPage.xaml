@@ -2,10 +2,26 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:PrismHandsOn"
-             x:Class="PrismHandsOn.Views.MainPage">
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             x:Class="PrismHandsOn.Views.MainPage"
+             Title="Main Page">
+    <ContentPage.Behaviors>
+        <behaviors:EventToCommandBehavior EventName="Appearing" Command="{Binding UpdateMessageCommand}"/>
+    </ContentPage.Behaviors>
 
-	<Label Text="Welcome to Xamarin.Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Label Text="{Binding Message}"/>
+        <Button Text="Navigate to ColorsPage"
+                Command="{Binding NavigateCommand}"
+                CommandParameter="ColorsPage"/>
+        <Button Text="DeepLink" Command="{Binding DeepLinkCommand}"/>
+        <Button Text="Display Alert" Command="{Binding DisplayAlertCommand}"/>
+        <Button Text="Display Confirm" Command="{Binding DisplayConfirmCommand}"/>
+        <Button Text="Display ActionSheet" Command="{Binding DisplayActionSheetCommand}"/>
+        <Button Text="Navigate to MyTabbedPage" 
+                Command="{Binding NavigateCommand}" 
+                CommandParameter="MyTabbedPage"/>
+
+    </StackLayout>
 
 </ContentPage>

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Prism;
+using Prism.Ioc;
+using PrismHandsOn.Models;
 using UIKit;
 
 namespace PrismHandsOn.iOS
@@ -23,9 +26,18 @@ namespace PrismHandsOn.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+            LoadApplication(new App(new PlatformInitializer()));
+
 
             return base.FinishedLaunching(app, options);
+        }
+
+        private class PlatformInitializer : IPlatformInitializer
+        {
+            public void RegisterTypes(IContainerRegistry containerRegistry)
+            {
+                containerRegistry.Register<ITextToSpeechService, TextToSpeechService>();
+            }
         }
     }
 }

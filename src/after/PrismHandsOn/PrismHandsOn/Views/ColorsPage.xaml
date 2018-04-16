@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             x:Class="PrismHandsOn.Views.ColorsPage"
+             Title="Colors">
+    <ListView ItemsSource="{Binding ColorInfos}">
+        <ListView.Behaviors>
+            <behaviors:EventToCommandBehavior EventName="ItemSelected" 
+                                              Command="{Binding ItemSelectedCommand}"
+                                              EventArgsParameterPath="SelectedItem"/>
+        </ListView.Behaviors>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding Name}" TextColor="{Binding Color}"/>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView></ContentPage>

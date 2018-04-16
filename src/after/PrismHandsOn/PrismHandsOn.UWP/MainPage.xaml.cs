@@ -12,6 +12,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Prism;
+using Prism.Ioc;
+using PrismHandsOn.Models;
 
 namespace PrismHandsOn.UWP
 {
@@ -21,7 +24,14 @@ namespace PrismHandsOn.UWP
         {
             this.InitializeComponent();
 
-            LoadApplication(new PrismHandsOn.App());
+            LoadApplication(new PrismHandsOn.App(new PlatformInitializer()));
+        }
+        private class PlatformInitializer : IPlatformInitializer
+        {
+            public void RegisterTypes(IContainerRegistry containerRegistry)
+            {
+                containerRegistry.Register<ITextToSpeechService, TextToSpeechService>();
+            }
         }
     }
 }

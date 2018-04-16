@@ -26,6 +26,8 @@ App.xaml.cs
 ```cs
 using System;
 using Prism.Ioc;
+using PrismHandsOn.Views;
+using Xamarin.Forms;
 
 namespace PrismHandsOn
 {

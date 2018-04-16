@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismHandsOn.iOS", "PrismHa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismHandsOn.UWP", "PrismHandsOn\PrismHandsOn.UWP\PrismHandsOn.UWP.csproj", "{224AB774-1A57-4242-A284-DBCB42F67D27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismHandsOn", "PrismHandsOn\PrismHandsOn\PrismHandsOn.csproj", "{F5B9850E-7A6D-4934-9A6D-B371494116C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrismHandsOn", "PrismHandsOn\PrismHandsOn\PrismHandsOn.csproj", "{F5B9850E-7A6D-4934-9A6D-B371494116C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -128,6 +128,7 @@ Global
 		{8B599689-D675-40A0-9A5D-7FFCB7650C2F}.AppStore|x64.ActiveCfg = AppStore|iPhone
 		{8B599689-D675-40A0-9A5D-7FFCB7650C2F}.AppStore|x86.ActiveCfg = AppStore|iPhone
 		{8B599689-D675-40A0-9A5D-7FFCB7650C2F}.Debug|Any CPU.ActiveCfg = Debug|iPhone
+		{8B599689-D675-40A0-9A5D-7FFCB7650C2F}.Debug|Any CPU.Build.0 = Debug|iPhone
 		{8B599689-D675-40A0-9A5D-7FFCB7650C2F}.Debug|ARM.ActiveCfg = Debug|iPhone
 		{8B599689-D675-40A0-9A5D-7FFCB7650C2F}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{8B599689-D675-40A0-9A5D-7FFCB7650C2F}.Debug|iPhone.Build.0 = Debug|iPhone
@@ -180,6 +181,8 @@ Global
 		{224AB774-1A57-4242-A284-DBCB42F67D27}.AppStore|x86.Build.0 = Release|x86
 		{224AB774-1A57-4242-A284-DBCB42F67D27}.AppStore|x86.Deploy.0 = Release|x86
 		{224AB774-1A57-4242-A284-DBCB42F67D27}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{224AB774-1A57-4242-A284-DBCB42F67D27}.Debug|Any CPU.Build.0 = Debug|x86
+		{224AB774-1A57-4242-A284-DBCB42F67D27}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{224AB774-1A57-4242-A284-DBCB42F67D27}.Debug|ARM.ActiveCfg = Debug|ARM
 		{224AB774-1A57-4242-A284-DBCB42F67D27}.Debug|ARM.Build.0 = Debug|ARM
 		{224AB774-1A57-4242-A284-DBCB42F67D27}.Debug|ARM.Deploy.0 = Debug|ARM
