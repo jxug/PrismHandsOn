@@ -79,4 +79,4 @@ SelectedItemPageでSpeakボタンを押下してみましょう。
 
 # Next
 
-[TabbedPageを扱う](07.TabbedPageを扱う.md)
+[演習問題](90.演習問題.md)

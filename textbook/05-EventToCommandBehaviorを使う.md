@@ -99,4 +99,4 @@ ContentPageの属性に「xmlns:behaviors=～」の宣言を追加するのを�
 
 # Next
 
-[NavigationPageの適用](04-01.NavigationPageの適用.md)  
+[NavigationPageの適用](06-01-NavigationPageの適用.md)  
