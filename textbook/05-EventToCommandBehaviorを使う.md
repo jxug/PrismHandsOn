@@ -1,16 +1,20 @@
 # EventToCommandBehaviorを使う
 
+## 目的
+
+* Commandを直接バインドできないイベントへCommandをバインドする
+
 MVVMパターンを実装しているとよく遭遇する「あるある」に
 
 「特定のイベントが発行されたらViewModelのCommandを実行したいのにCommandがバインドできない！」
 
 というものがあります。
 
-XAMLアーキテクチャを採用したアプリケーションでは、そういった場合は通常EventTriggerなどを使って実現するのですが、Xamarin.FormsではTriggerに設定できるActionがバインドに対応していないため、話が少しややこしくなります。
-
 そこでPrismではEventToCommandBehaviorを提供しており、それを利用することで、あらゆるイベントから簡単にCommandを実行できる手段を提供しています。
 
-ここでは、MainPage起動時のAppearingイベント発生時に、画面の表示メッセージを更新するよう実装していきます。
+ここでは、MainPage起動時のAppearingイベント発生時に、画面の表示メッセージを更新するよう実装ます。
+
+## 手順
 
 具体的な手順は次の通りです。
 
@@ -19,49 +23,17 @@ XAMLアーキテクチャを採用したアプリケーションでは、そう�
 
 ## MainPageViewModel.csにAppearingイベントに対応するCommandを定義する  
 
-MainPageViewModel.csにCommandを定義し、Command実行時にMessageを更新するよう実装を修正します。
+MainPageViewModel.csにCommandを定義し、Command実行時にMessageを更新するよう実装します。
 
-変更前
 ```cs
-    public class MainPageViewModel : BindableBase
-    {
-        public string Message { get; } = "Hello, Prism for Xamarin.Forms!";
-    }
+public ICommand AppearingCommand => new Command(() => Message = $"Appearing on {DateTime.Now}");}
 ```
-
-変更後
-```cs
-using Prism.Mvvm;
-using System.Windows.Input;
-using Xamarin.Forms;
-
-namespace PrismHandsOn.ViewModels
-{
-    public class MainPageViewModel : BindableBase
-    {
-        private string _message = "Hello, Prism for Xamarin.Forms!";
-
-        public string Message
-        {
-            get => _message;
-            set => SetProperty(ref _message, value);
-        }
-
-        public ICommand UpdateMessageCommand => new Command(() => Message += "Updated");
-    }
-}
-```
-
-大きく二点の変更が加えられています。
-
-1. Messageプロパティが変更時にINotifyPropertyChangedの定義に従って、プロパティ変更を通知するように変更  
-2. UpdateMessageCommandコマンドを追加し、実行時にMessageに「 Updated」を追加するように修正
-
-INotifyPropertyChangedの変更通知はSetPropertyメソッドによって実装されており、その実態はPrismの提供するBindableBaseクラスにあります。
 
 ## MainPage.xamlにEventToCommandBehaviorを定義する
 
-つづいてPageのAppearingイベント発生時に、UpdateMessageCommandを実行するよう、MainPage.xamlを更新します。
+つづいてPageのAppearingイベント発生時に、AppearingCommandを実行するよう、MainPage.xamlを更新します。
+
+ContentPageの属性に「xmlns:behaviors=～」の宣言を追加するのを忘れないように注意しましょう。
 
 変更前
 ```xml
@@ -69,8 +41,7 @@ INotifyPropertyChangedの変更通知はSetPropertyメソッドによって実�
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:PrismHandsOn"
-             x:Class="PrismHandsOn.Views.MainPage"
-             Title="Main Page">
+             x:Class="PrismHandsOn.Views.MainPage">
              ...
 ```
 
@@ -81,21 +52,19 @@ INotifyPropertyChangedの変更通知はSetPropertyメソッドによって実�
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:PrismHandsOn"
              xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
-             x:Class="PrismHandsOn.Views.MainPage"
-             Title="Main Page">
+             x:Class="PrismHandsOn.Views.MainPage">
     <ContentPage.Behaviors>
-        <behaviors:EventToCommandBehavior EventName="Appearing" Command="{Binding UpdateMessageCommand}"/>
+        <behaviors:EventToCommandBehavior EventName="Appearing" Command="{Binding AppearingCommand}"/>
     </ContentPage.Behaviors>
     ...
 ```
 
 ContentPageにEventToCommandBehaviorが追記され、EventNameにAppearingが、CommandにUpdateMessageCommandが設定されているのが見て取れるでしょう。
 
-ContentPageの属性に「xmlns:behaviors=～」の宣言を追加するのを忘れないように注意しましょう。
 
-それでは実行してみましょう。表示メッセージの末尾に「 Updated」が追加されていれば成功です。
+それでは実行してみましょう。「Appearing on ～」と表示されれば実装は成功です。
 
-![](assets/03-01.png)
+![](assets/03-01.gif)
 
 # Next
 

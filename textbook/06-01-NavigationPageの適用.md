@@ -1,8 +1,12 @@
 # NavigationPageの適用
 
-画面遷移の解説をするにあたり、まずはMainPageをNavigationPage内で表示されるように修正しましょう。
+## 目的
 
-つぎの手順で修正します。
+* MainPageをNavigationPage内に表示されるよう修正する
+
+画面遷移の解説するための前準備になります
+
+## 手順
 
 1. App.xaml.csでNavigationPageをDIコンテナへ追加する  
 2. App.xaml.csで初期画面の画面遷移を修正する  
@@ -10,9 +14,7 @@
 
 ## App.xaml.csでNavigationPageをDIコンテナへ追加する  
 
-Prism for Xamarin.Formsでは画面遷移対象のクラスは全てDIコンテナに登録しておく必要があります。これはXamarin.Formsで標準で含まれているクラスに対しても同様で、NavigationPageを利用する場合はそれ自体をDIコンテナへ追加する必要があります。
-
-そのためRegisterTypesを修正し、NavigationPageをDIコンテナへ追加するコードを追記しましょう。
+RegisterTypesを修正し、NavigationPageをDIコンテナへ追加するコードを追記しましょう。
 
 変更前
 ```cs
@@ -30,6 +32,8 @@ Prism for Xamarin.Formsでは画面遷移対象のクラスは全てDIコンテ�
             containerRegistry.RegisterForNavigation<MainPage>();
         }
 ```
+
+Prism for Xamarin.Formsでは画面遷移対象のクラスは全てDIコンテナに登録しておく必要があります。これはXamarin.Formsで標準で含まれているクラスに対しても同様で、NavigationPageを利用する場合はそれ自体をDIコンテナへ追加する必要があります。
 
 ## App.xaml.csで初期画面の画面遷移を修正する  
 
@@ -84,7 +88,7 @@ XAML上でContentPageのプロパティのTitleにページ名を指定してく
 
 実行すると、次のようにページの頭にナビゲーションバーが追加され、ページ名が表示されます。
 
-![](assets/04-01-01.png)
+![](assets/06-01-01.png)
 
 
 # Next

@@ -26,6 +26,7 @@ namespace PrismHandsOn.UWP
 
             LoadApplication(new PrismHandsOn.App(new PlatformInitializer()));
         }
+
         private class PlatformInitializer : IPlatformInitializer
         {
             public void RegisterTypes(IContainerRegistry containerRegistry)

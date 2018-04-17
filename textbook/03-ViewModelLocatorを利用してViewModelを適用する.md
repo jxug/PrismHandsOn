@@ -2,11 +2,11 @@
 
 ## 目的  
 
-* ViewModelLocatorを利用してViewModelのオート バインディングを利用する
+* ViewModelLocatorを利用してViewへViewModelを自動的にバインドする
 
-Prism for Xamarin.FormsではMVVMパターンを採用しています。
+Prism for Xamarin.FormsではMVVMパターンを採用しています。このため、Viewには1:1に対応するViewのルートとなるViewModelクラスが必要です。
 
-MainPageViewModelを新たに作成し、MainPageのBindingContextプロパティに自動的にバインドすることで、ViewとViewModelのバインディングと通知機構を有効化します。
+MainPageに対し、MainPageViewModelを新たに作成し、MainPageのBindingContextプロパティに自動的にバインドすることで、ViewとViewModelのバインディングと通知機構を有効化します。
 
 ## 手順
 
@@ -18,8 +18,6 @@ MainPageViewModelを新たに作成し、MainPageのBindingContextプロパテ�
 ViewModelsフォルダにMainPageViewModel.csを追加し、次のように実装します。
 
 ```cs
-using Prism.Mvvm;
-
 namespace PrismHandsOn.ViewModels
 {
     public class MainPageViewModel

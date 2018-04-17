@@ -30,6 +30,5 @@ namespace PrismHandsOn.ViewModels
         {
             _navigationService = navigationService;
         }
-
     }
 }

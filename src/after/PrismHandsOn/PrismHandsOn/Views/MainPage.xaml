@@ -6,22 +6,25 @@
              x:Class="PrismHandsOn.Views.MainPage"
              Title="Main Page">
     <ContentPage.Behaviors>
-        <behaviors:EventToCommandBehavior EventName="Appearing" Command="{Binding UpdateMessageCommand}"/>
+        <behaviors:EventToCommandBehavior EventName="Appearing" Command="{Binding AppearingCommand}"/>
     </ContentPage.Behaviors>
 
-    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-        <Label Text="{Binding Message}"/>
-        <Button Text="Navigate to ColorsPage"
-                Command="{Binding NavigateCommand}"
-                CommandParameter="ColorsPage"/>
-        <Button Text="DeepLink" Command="{Binding DeepLinkCommand}"/>
-        <Button Text="Display Alert" Command="{Binding DisplayAlertCommand}"/>
-        <Button Text="Display Confirm" Command="{Binding DisplayConfirmCommand}"/>
-        <Button Text="Display ActionSheet" Command="{Binding DisplayActionSheetCommand}"/>
-        <Button Text="Navigate to MyTabbedPage" 
-                Command="{Binding NavigateCommand}" 
-                CommandParameter="MyTabbedPage"/>
-
-    </StackLayout>
+    <ScrollView>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Label Text="{Binding Message}"/>
+            <Button Text="Update Message"
+                    Command="{Binding UpdateMessageCommand}"/>
+            <Button Text="Navigate to ColorsPage"
+                    Command="{Binding NavigateCommand}"
+                    CommandParameter="ColorsPage"/>
+            <Button Text="DeepLink" Command="{Binding DeepLinkCommand}"/>
+            <Button Text="Display Alert" Command="{Binding DisplayAlertCommand}"/>
+            <Button Text="Display Confirm" Command="{Binding DisplayConfirmCommand}"/>
+            <Button Text="Display ActionSheet" Command="{Binding DisplayActionSheetCommand}"/>
+            <Button Text="Navigate to MyTabbedPage" 
+                    Command="{Binding NavigateCommand}" 
+                    CommandParameter="MyTabbedPage"/>
+        </StackLayout>
+    </ScrollView>
 
 </ContentPage>

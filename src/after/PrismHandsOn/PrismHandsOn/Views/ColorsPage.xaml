@@ -15,4 +15,5 @@
                 <TextCell Text="{Binding Name}" TextColor="{Binding Color}"/>
             </DataTemplate>
         </ListView.ItemTemplate>
-    </ListView></ContentPage>
+    </ListView>
+</ContentPage>

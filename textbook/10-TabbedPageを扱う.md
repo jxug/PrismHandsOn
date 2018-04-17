@@ -35,9 +35,7 @@ Viewsフォルダの下にTabbedPageを継承したMyTabbedPageを作成しま�
 <?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
             xmlns:views="clr-namespace:PrismHandsOn.Views;assembly=PrismHandsOn"
-            prism:ViewModelLocator.AutowireViewModel="True"
             x:Class="PrismHandsOn.Views.MyTabbedPage"
             Title="My Tabbed Page">
     <views:ChildPage Title="Tab A"/>
@@ -61,15 +59,19 @@ protected override void RegisterTypes(IContainerRegistry containerRegistry)
 
 MainPage.xamlにボタンを追加し、先に作成したNavigateCommandを利用してMyTabbedPageへ遷移するよう実装します。
 
+またボタンが表示しきれなくなりますので、StackLayoutをScrollViewで囲います。
+
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage ...
-    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-        ...
-        <Button Text="Navigate to MyTabbedPage" 
-                Command="{Binding NavigateCommand}" 
-                CommandParameter="MyTabbedPage"/>
-    </StackLayout>
+    <ScrollView>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            ...
+            <Button Text="Navigate to MyTabbedPage" 
+                    Command="{Binding NavigateCommand}" 
+                    CommandParameter="MyTabbedPage"/>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
 ```
 
@@ -77,9 +79,9 @@ MainPage.xamlにボタンを追加し、先に作成したNavigateCommandを利�
 
 正しく実装されていれば、次のように動作します。
 
-![](assets/07-01.gif)
+![](assets/10-01.gif)
 
-4. 子Pageでタブが活性状態の変化をハンドリングする
+## 子Pageでタブが活性状態の変化をハンドリングする
 
 つづいて、タブの活性状態をハンドリングする実装を行います。
 
@@ -152,7 +154,7 @@ IsActiveプロパティのsetの中で、IsActiveがtrueに変更されたとき
 
 切り替えてタブが表示自体に変化するタイミングでListViewに行が追加されていることが見て取れます。
 
-![](assets/07-02.gif)
+![](assets/10-02.gif)
 
 # Next
 

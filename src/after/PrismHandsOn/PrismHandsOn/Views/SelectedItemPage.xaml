@@ -7,7 +7,7 @@
         <Label Text="{Binding ColorName}"
                TextColor="{Binding Color}"/>
         <Button Text="GoBack" Command="{Binding GoBackCommand}"/>
-        <Button Text="Navigate Orange" Command="{Binding NavigateOrangeCommand}"/>
         <Button Text="Speak" Command="{Binding SpeakCommand}"/>
+        <Button Text="Navigate Orange" Command="{Binding NavigateOrangeCommand}"/>
     </StackLayout>
 </ContentPage>

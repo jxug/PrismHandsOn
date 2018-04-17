@@ -1,5 +1,4 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Windows.Input;
 using Prism.AppModel;
 using Prism.Mvvm;
@@ -37,12 +36,12 @@ namespace PrismHandsOn.ViewModels
         public ICommand GoBackCommand =>
             new Command(() => _navigationService.GoBackAsync());
 
+        public ICommand SpeakCommand => new Command(() => _textToSpeechService.Speak(ColorName));
+
         public ICommand NavigateOrangeCommand =>
             new Command(() =>
                 _navigationService.NavigateAsync(
-                    $"/{nameof(NavigationPage)}/{nameof(ColorsPage)}/{nameof(SelectedItemPage)}?colorName=Orange"));
-
-        public ICommand SpeakCommand => new Command(() => _textToSpeechService.Speak(ColorName));
+                    $"/{nameof(NavigationPage)}/{nameof(MainPage)}/{nameof(ColorsPage)}/{nameof(SelectedItemPage)}?colorName=Orange"));
 
         public SelectedItemPageViewModel(INavigationService navigationService, ITextToSpeechService textToSpeechService, IApplicationStore applicationStore)
         {

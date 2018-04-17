@@ -1,5 +1,6 @@
-﻿using Prism.Mvvm;
+﻿using System;
 using System.Windows.Input;
+using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
 using PrismHandsOn.Views;
@@ -21,7 +22,8 @@ namespace PrismHandsOn.ViewModels
             set => SetProperty(ref _message, value);
         }
 
-        public ICommand UpdateMessageCommand => new Command(() => Message += "Updated");
+        public ICommand UpdateMessageCommand => new Command(() => Message = $"Updated on {DateTime.Now}");
+        public ICommand AppearingCommand => new Command(() => Message = $"Appearing on {DateTime.Now}");
 
         public Command<string> NavigateCommand =>
             new Command<string>(
