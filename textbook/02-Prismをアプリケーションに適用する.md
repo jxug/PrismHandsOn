@@ -59,7 +59,7 @@ XAML側で親クラスを指定している（XAMLのルート要素が親クラ
 
 App.xaml.cs
 ```cs
-protected override void RegisterTypes()
+protected override void RegisterTypes(IContainerRegistry containerRegistry)
 {
     containerRegistry.RegisterForNavigation<MainPage>();
 }
