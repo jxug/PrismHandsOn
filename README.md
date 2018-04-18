@@ -1,5 +1,12 @@
 # Prism for Xamarin.Forms入門 Hans-on
 
+## 対象者
+
+本ハンズオンは次のような方を想定しています。
+
+* Xamarin.Formsの基本を理解している  
+* Prism for Xamarin.Formsをこれから学習しようとしている  
+
 ## はじめに  
 
 スライド  
