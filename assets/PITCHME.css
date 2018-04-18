@@ -1,0 +1,21 @@
+@font-face{ 
+  font-family: 'mplus-2p-thin';
+  src: url('http://mplus-webfonts.sourceforge.jp/mplus-2p-thin.eot');
+  src: url('http://mplus-webfonts.sourceforge.jp/mplus-2p-thin.eot?#iefix') format('embedded-opentype'),
+       url('http://mplus-webfonts.sourceforge.jp/mplus-2p-thin.woff') format('woff'),
+       url('http://mplus-webfonts.sourceforge.jp/mplus-2p-thin.ttf') format('truetype');
+}
+
+.reveal .slides {
+    text-align : left;
+}
+
+.reveal .slides section>* {
+    text-transform: none;
+    font-weight: normal;
+    font-family: mplus-2p-thin, sans-serif;
+}
+
+.reveal .slides section h2 {
+    text-align : center;
+}
