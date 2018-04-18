@@ -2,7 +2,7 @@
 logo : assets/jxug.png
 
 # 背景  
-background : assets/background.png
+# background : assets/background.png
 
 # 垂直位置
 vertical-center : true
@@ -12,4 +12,4 @@ theme-override : assets/PITCHME.css
 
 # スライド設定  
 slide-number: true  
-footnote : "© 2017 Japan Xamarin User Group."  
+footnote : "© 2018 Japan Xamarin User Group."  
