@@ -26,7 +26,7 @@ MVVMパターンを実装しているとよく遭遇する「あるある」に
 MainPageViewModel.csにCommandを定義し、Command実行時にMessageを更新するよう実装します。
 
 ```cs
-public ICommand AppearingCommand => new Command(() => Message = $"Appearing on {DateTime.Now}");}
+public ICommand AppearingCommand => new Command(() => Message = $"Appearing on {DateTime.Now}");
 ```
 
 ## MainPage.xamlにEventToCommandBehaviorを定義する
