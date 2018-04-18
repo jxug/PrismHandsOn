@@ -121,9 +121,8 @@ namespace PrismHandsOn.ViewModels
 
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
         <Label Text="{Binding Message}"/>
-        <Button Text="Navigate to ColorsPage"
-                Command="{Binding NavigateCommand}"
-                CommandParameter="ColorsPage"/>
+        <Button Text="Update Message"
+                Command="{Binding UpdateMessageCommand}"/>
     </StackLayout>
 
 </ContentPage>
