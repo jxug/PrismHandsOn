@@ -1,5 +1,10 @@
 # Prism for Xamarin.Forms入門 Hans-on
 
+## はじめに  
+
+スライド  
+[https://gitpitch.com/jxug/PrismHandsOn/master#/](https://gitpitch.com/jxug/PrismHandsOn/master#/)
+
 ## 目次
 
 1. [事前準備](textbook/01-事前準備.md)  
