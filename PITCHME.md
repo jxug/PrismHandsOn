@@ -65,6 +65,17 @@ Prismの製作者であるBrian Lagnus氏は次のようにおっしゃってい
 * Dependency Injection
 * Logging
 
+Note:
+
+プリズムは利用者に
+MVVMのSupportを提供します。
+・Commanding
+・Messaging
+・Navigation
+・Page Dialog Service
+・Dependency Injection
+そしてLoggingです
+
 +++
 
 ### Xamarin.Formsの最初の悩み  
