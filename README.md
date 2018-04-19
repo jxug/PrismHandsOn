@@ -30,10 +30,6 @@
     3. [ITextToSpeechServiceの実装-Android](textbook/07-01-03-ITextToSpeechServiceの実装-Android.md)  
     4. [ITextToSpeechServiceの実装-UWP](textbook/07-01-04-ITextToSpeechServiceの実装-UWP.md)
 
-## 演習問題
-
-[演習問題](textbook/90.演習問題.md)
-
 ## 自習用
 
 8. 画面遷移  
@@ -44,3 +40,7 @@
     2. [確認ダイアログの表示](textbook/09-02-確認ダイアログの表示.md)  
     3. [アクションシートの表示](textbook/09-03-アクションシートの表示.md)  
 10. [TabbedPageを扱う](textbook/10-TabbedPageを扱う.md)
+
+## 演習問題
+
+[演習問題](textbook/90.演習問題.md)
