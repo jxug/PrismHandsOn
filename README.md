@@ -12,6 +12,28 @@
 スライド  
 [https://gitpitch.com/jxug/PrismHandsOn/master#/](https://gitpitch.com/jxug/PrismHandsOn/master#/)
 
+## 環境  
+
+本ハンズオンは以下の環境にて動作を確認しています。
+
+### Windows
+
+* Windows 10 Version 1709  
+* Visual Studio 2017 Version 15.6.6
+
+### Mac
+
+* macOS High Sierra Version 10.13.4  
+* Xcode Version 9.3  
+* Visual Studio for Mac Version 7.4.3  
+
+### 共通  
+
+* Android SDK Platform 27 (Android 8.1 - Oreo)  
+* Android SDK Tools 26.1.1  
+* Android SKD Platform-Tools 27.0.1  
+* Android SDK Build-Tools 27.0.3  
+
 ## 目次
 
 1. [事前準備](textbook/01-事前準備.md)  
