@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.Views;
@@ -23,14 +24,22 @@ namespace PrismHandsOn.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App(new PlatformInitializer()));
+            LoadApplication(new App(new PlatformInitializer(this)));
         }
 
         private class PlatformInitializer : IPlatformInitializer
         {
+            private readonly Context _context;
+
+            public PlatformInitializer(Context context)
+            {
+                _context = context;
+            }
+
             public void RegisterTypes(IContainerRegistry containerRegistry)
             {
                 containerRegistry.Register<ITextToSpeechService, TextToSpeechService>();
+                containerRegistry.RegisterInstance(_context);
             }
         }
     }
