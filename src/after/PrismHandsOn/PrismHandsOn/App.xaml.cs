@@ -32,7 +32,7 @@ namespace PrismHandsOn
             var applicationStore = Container.Resolve<IApplicationStore>();
             if (applicationStore.Properties.TryGetValue("colorName", out var color))
             {
-                NavigationService.NavigateAsync($"{nameof(NavigationPage)}/{nameof(ColorsPage)}/{nameof(SelectedItemPage)}?colorName={color}");
+                NavigationService.NavigateAsync($"{nameof(NavigationPage)}/{nameof(MainPage)}/{nameof(ColorsPage)}/{nameof(SelectedItemPage)}?colorName={color}");
             }
             else
             {
