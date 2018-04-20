@@ -79,4 +79,4 @@ SelectedItemPageでSpeakボタンを押下してみましょう。
 
 # Next
 
-[DeepLinkを利用する](textbook/08-01-DeepLinkを利用する.md)
+[DeepLinkを利用する](08-01-DeepLinkを利用する.md)
