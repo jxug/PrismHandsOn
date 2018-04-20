@@ -79,4 +79,4 @@ SelectedItemPageでSpeakボタンを押下してみましょう。
 
 # Next
 
-[演習問題](90.演習問題.md)
+[DeepLinkを利用する](textbook/08-01-DeepLinkを利用する.md)
