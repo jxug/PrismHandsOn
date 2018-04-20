@@ -25,7 +25,6 @@ namespace PrismHandsOn.Droid
             }
             else
             {
-                var p = new Dictionary<string, string>();
                 _speaker.Speak(_text, QueueMode.Flush, null, "messageId");
             }
         }
@@ -35,7 +34,6 @@ namespace PrismHandsOn.Droid
         {
             if (status.Equals(OperationResult.Success))
             {
-                var p = new Dictionary<string, string>();
                 _speaker.Speak(_text, QueueMode.Flush, null, "messageId");
             }
         }
