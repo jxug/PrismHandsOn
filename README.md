@@ -1,4 +1,4 @@
-# Prism for Xamarin.Forms入門 Hans-on
+# Prism for Xamarin.Forms入門 Hands-on
 
 ## 対象者
 
