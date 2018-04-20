@@ -12,27 +12,17 @@
 スライド  
 [https://gitpitch.com/jxug/PrismHandsOn/master#/](https://gitpitch.com/jxug/PrismHandsOn/master#/)
 
-## 環境  
+## 環境について
 
-本ハンズオンは以下の環境にて動作を確認しています。
+[動作確認環境について](textbook/00-環境情報.md)
 
-### Windows
+## ケース スタディの追加要望について
 
-* Windows 10 Version 1709  
-* Visual Studio 2017 Version 15.6.6
+Prismで「これこれ、こういう場合はどうすればいいの？」という疑問のある方は、その気軽にIssueへ要望を登録してください。本ハンズオンのコンテンツとして追加を検討いたします。
 
-### Mac
+ただ、本ハンズオンコンテンツとしては、汎用的な内容を中心に共有していく方針のため、内容によってはコンテンツとしての追加は見送る場合もありますので、ご了承ください。（その場合でも、可能な範囲で相談には乗らせていただきます）
 
-* macOS High Sierra Version 10.13.4  
-* Xcode Version 9.3  
-* Visual Studio for Mac Version 7.4.3  
-
-### 共通  
-
-* Android SDK Platform 27 (Android 8.1 - Oreo)  
-* Android SDK Tools 26.1.1  
-* Android SKD Platform-Tools 27.0.1  
-* Android SDK Build-Tools 27.0.3  
+要望は[こちら](https://github.com/jxug/PrismHandsOn/issues)に投稿ください。
 
 ## 目次
 
