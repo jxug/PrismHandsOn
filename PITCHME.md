@@ -1,5 +1,5 @@
 ## Prism for Xamarin.Forms
-## 入門 Hans-On
+## 入門 Hands-On
 
 +++
 
