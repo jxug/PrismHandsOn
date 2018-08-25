@@ -115,7 +115,7 @@ namespace PrismHandsOn.ViewModels
 変更前はContentPageの直下にLabelが存在していましたが、ContentPage直下はStackLayoutに変更し、ボタンを追加します。そしてボタンにUpdateMessageCommandをバインドします。
 
 変更後
-```cs
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage ...
 
