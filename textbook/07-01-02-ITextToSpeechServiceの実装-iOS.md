@@ -81,4 +81,4 @@ public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 
 # Next
 
-[演習問題](90.演習問題.md)
+[DeepLinkを利用する](08-01-DeepLinkを利用する.md)
