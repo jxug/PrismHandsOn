@@ -1,13 +1,13 @@
-# ITextToSpeechServiceの実装：Android  
+# `ITextToSpeechService`の実装：Android  
 
 次の手順で実装します。
 
-1. ITextToSpeechServiceの実装クラスを作成する  
-2. DIコンテナへTextToSpeechServiceを登録する  
+1. `ITextToSpeechService`の実装クラスを作成する
+2. DIコンテナへ`TextToSpeechService`を登録する
 
-## ITextToSpeechServiceの実装クラスを作成する  
+## `ITextToSpeechService`の実装クラスを作成する
 
-PrismHandsOn.AndroidプロジェクトにTextToSpeechService.csクラスを作成します。  
+PrismHandsOn.Androidプロジェクトに`TextToSpeechService.cs`クラスを作成します。  
 
 ```cs
 using Android.Speech.Tts;
@@ -54,9 +54,9 @@ namespace PrismHandsOn.Droid
 }
 ```
 
-## DIコンテナへTextToSpeechServiceを登録する  
+## DIコンテナへ`TextToSpeechService`を登録する
 
-PrismHandsOn.AndroidプロジェクトのMainActivityを開き、OnCreateメソッドの下に内部クラスPlatformInitializerを作成します。  
+PrismHandsOn.Androidプロジェクトの`MainActivity`を開き、`OnCreate`メソッドの下に内部クラス`PlatformInitializer`を作成します。
 
 ```cs
 private class PlatformInitializer : IPlatformInitializer
@@ -76,9 +76,10 @@ private class PlatformInitializer : IPlatformInitializer
 }
 ```
 
-PlatformInitializerをAppクラスにインジェクションします。MainActivityを修正してください。  
+`PlatformInitializer`を`App`クラスにインジェクションします。`MainActivity`を修正してください。
 
-■変更前  
+■変更前
+
 ```cs
 protected override void OnCreate(Bundle bundle)
 {
@@ -88,6 +89,7 @@ protected override void OnCreate(Bundle bundle)
 ```
 
 ■変更後
+
 ```cs
 protected override void OnCreate(Bundle bundle)
 {
@@ -97,7 +99,7 @@ protected override void OnCreate(Bundle bundle)
 ```
 
 以上で実装は終了です。
-SelectedItemPageでSpeakボタンを押下してみましょう。
+`SelectedItemPage`でSpeakボタンを押下してみましょう。
 
 # Next
 

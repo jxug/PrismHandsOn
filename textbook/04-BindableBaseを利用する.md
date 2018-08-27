@@ -2,24 +2,24 @@
 
 ## 目的  
 
-* BindableBaseを利用してINotifyPropertyChangedを簡便に実装する
+* `BindableBase`を利用して`INotifyPropertyChanged`を簡便に実装する
 
 MVVMパターンでは、画面の状態はViewModelで管理します。この時、ViewModelの値が変わったら、画面の表示状態が変更される必要があります。
 
-このため、ViewModelの状態が変更されたタイミングでViewに変更を通知する必要があります。その為のインターフェースがINotifyPropertyChangedです。
+このため、ViewModelの状態が変更されたタイミングでViewに変更を通知する必要があります。その為のインターフェースが`INotifyPropertyChanged`です。
 
-INotifyPropertyChangedの実装は煩雑であるため、PrismではViewModelの基底クラスとしてBindableBaseを提供しており、簡便に実装できるようにしています。
+`INotifyPropertyChanged`の実装は煩雑であるため、PrismではViewModelの基底クラスとして`BindableBase`を提供しており、簡便に実装できるようにしています。
 
-## 手順  
+## 手順
 
-1. MainPageViewModelをBindableBaseが親クラスとなるよう修正する  
-2. MainPageViewModelのMessageプロパティの変更通知を実装する  
-3. MainPageViewModelのMessageを更新するCommandを作成する  
-4. MainPageにボタンを追加し、Messageを更新するCommandをバインドする
+1. `MainPageViewModel`を`BindableBase`が親クラスとなるよう修正する
+1. `MainPageViewModel`の`Message`プロパティの変更通知を実装する
+1. `MainPageViewModel`の`Message`を更新するCommandを作成する
+1. MainPageにボタンを追加し、`Message`を更新するCommandをバインドする
 
-## MainPageViewModelをBindableBaseが親クラスとなるよう修正する  
+## `MainPageViewModel`を`BindableBase`が親クラスとなるよう修正する  
 
-MainPageViewModel.csを開き、BindableBaseが親クラスとなるよう、次のように変更します。
+`MainPageViewModel.cs`を開き、`BindableBase`が親クラスとなるよう、次のように変更します。
 
 変更前
 
@@ -43,15 +43,16 @@ namespace PrismHandsOn.ViewModels
         ...
 ```
 
-## MainPageViewModelのMessageプロパティの変更通知を実装する  
+## MainPageViewModelの`Message`プロパティの変更通知を実装する
 
 次の手順で実装します。
 
-1. Messageプロパティに対応するバッキングフィールド「_message」を追加
-2. Messageプロパティのgetter・setterを明示的に実装  
-2. setterではBindableBaseのSetPropertyを呼ぶ
+1. `Message`プロパティに対応するバッキングフィールド「`_message`」を追加
+1. `Message`プロパティのgetter・setterを明示的に実装
+1. setterでは`BindableBase`の`SetProperty`を呼ぶ
 
 変更前
+
 ```cs
     public class MainPageViewModel : BindableBase
     {
@@ -60,6 +61,7 @@ namespace PrismHandsOn.ViewModels
 ```
 
 変更後
+
 ```cs
     public class MainPageViewModel : BindableBase
     {
@@ -73,11 +75,11 @@ namespace PrismHandsOn.ViewModels
         ...
 ```
 
-BindableBaseのSetPropertyを呼ぶことで、_messageとvalueの値が異なった場合（つまり変更が発生した場合）に、INotifyPropertyChangedで定義されているPropertyChangedが発行され、Viewへ変更が通知されます。
+`BindableBase`の`SetProperty`を呼ぶことで、`_message`と`value`の値が異なった場合（つまり変更が発生した場合）に、`INotifyPropertyChanged`で定義されている`PropertyChanged`が発行され、Viewへ変更が通知されます。
 
 ## MainPageViewModelのMessageを更新するCommandを作成する  
 
-つぎのようなコマンドを実装します。
+次のようなコマンドを実装します。
 
 usingが追加になっていることに注意しましょう。
 
@@ -97,24 +99,25 @@ namespace PrismHandsOn.ViewModels
 }
 ```
 
-## MainPageにボタンを追加し、Messageを更新するCommandをバインドする
+## `MainPage`にボタンを追加し、`Message`を更新するCommandをバインドする
 
 変更前
+
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage ...
 
-	<Label Text="{Binding Message}" 
-           VerticalOptions="Center" 
+	<Label Text="{Binding Message}"
+           VerticalOptions="Center"
            HorizontalOptions="Center" />
 
 </ContentPage>
-
 ```
 
-変更前はContentPageの直下にLabelが存在していましたが、ContentPage直下はStackLayoutに変更し、ボタンを追加します。そしてボタンにUpdateMessageCommandをバインドします。
+変更前は`ContentPage`の直下に`Label`が存在していましたが、`ContentPage`直下は`StackLayout`に変更し、ボタンを追加します。そしてボタンに`UpdateMessageCommand`をバインドします。
 
 変更後
+
 ```cs
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage ...
@@ -127,6 +130,7 @@ namespace PrismHandsOn.ViewModels
 
 </ContentPage>
 ```
+
 それでは実行してみましょう。表示メッセージが次のように更新されれば実装成功です。
 
 ![](assets/04-01.gif)

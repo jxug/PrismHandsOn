@@ -1,13 +1,13 @@
-# ITextToSpeechServiceの実装：iOS  
+# `ITextToSpeechService`の実装：iOS  
 
 次の手順で実装します。
 
-1. ITextToSpeechServiceの実装クラスを作成する  
-2. DIコンテナへTextToSpeechServiceを登録する  
+1. `ITextToSpeechService`の実装クラスを作成する
+2. DIコンテナへ`TextToSpeechService`を登録する
 
-## ITextToSpeechServiceの実装クラスを作成する  
+## `ITextToSpeechService`の実装クラスを作成する
 
-PrismHandsOn.iOSプロジェクトにTextToSpeechService.csクラスを作成します。  
+PrismHandsOn.iOSプロジェクトに`TextToSpeechService.cs`クラスを作成します。
 
 ```cs
 using AVFoundation;
@@ -35,9 +35,9 @@ namespace PrismHandsOn.iOS
 }
 ```
 
-## DIコンテナへTextToSpeechServiceを登録する  
+## DIコンテナへ`TextToSpeechService`を登録する
 
-PrismHandsOn.iOSプロジェクトのAppDelegateを開き、FinishedLaunchingメソッドの下に内部クラスPlatformInitializerを作成します。  
+PrismHandsOn.iOSプロジェクトの`AppDelegate`を開き、`FinishedLaunching`メソッドの下に内部クラス`PlatformInitializer`を作成します。
 
 ```cs
 private class PlatformInitializer : IPlatformInitializer
@@ -49,10 +49,11 @@ private class PlatformInitializer : IPlatformInitializer
 }
 ```
 
-PlatformInitializerをAppクラスにインジェクションする。  
-AppDelegateのFinishedLaunchingを修正する。  
+`PlatformInitializer`を`App`クラスにインジェクションする。
+`AppDelegate`の`FinishedLaunching`を修正する。
 
-■変更前  
+■変更前
+
 ```cs
 public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 {
@@ -64,6 +65,7 @@ public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 ```
 
 ■変更後
+
 ```cs
 public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 {
@@ -75,7 +77,7 @@ public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 ```
 
 以上で実装は終了です。
-SelectedItemPageでSpeakボタンを押下してみましょう。
+`SelectedItemPage`でSpeakボタンを押下してみましょう。
 
 # Next
 

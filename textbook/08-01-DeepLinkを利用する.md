@@ -10,17 +10,17 @@ Prismでは、深い画面まで一度に遷移するためのDeepLinkの機能�
 2. アプリケーションがスリープ状態から復帰した時に、元々開かれていた画面を開き直したい  
 3. アプリケーションで現時点で開いている遷移ツリーから、別の遷移ツリーに一気に移動したい 　
 
-ここではMainPage > ColorPage > SelectedItemPageと一気に遷移するよう実装します。
+ここでは`MainPage` > `ColorPage` > `SelectedItemPage`と一気に遷移するよう実装します。
 その際に、赤色が選択されたものとして遷移することとします。
 
 ## 手順
 
-* MainPageViewModelにDeepLinkを実装したCommandを追加する 　
-* MainPageにボタンを追加し、DeepLinkを呼び出す
+* `MainPageViewModel`にDeepLinkを実装したCommandを追加する 　
+* `MainPage`にボタンを追加し、DeepLinkを呼び出す
 
-## MainPageViewModelにDeepLinkを実装したCommandを追加する 　
+## `MainPageViewModel`にDeepLinkを実装したCommandを追加する 　
 
-MainPageViewModel.csを開き、次のようなコマンドを実装します。
+`MainPageViewModel.cs`を開き、次のようなコマンドを実装します。
 
 ```cs
 public ICommand DeepLinkCommand =>
@@ -36,9 +36,9 @@ public ICommand DeepLinkCommand =>
 PageA?paramA=valueA/PageB?paramB1=valueB1&paramB2=valueB2
 ```
 
-## MainPageにボタンを追加し、DeepLinkを呼び出す
+## `MainPage`にボタンを追加し、DeepLinkを呼び出す
 
-MainPage.xamlを開き、Labelの下に先に定義したDeepLinkCommandをバインドしたボタンを定義します。
+`MainPage.xaml`を開き、Labelの下に先に定義したDeepLinkCommandをバインドしたボタンを定義します。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -55,7 +55,7 @@ MainPage.xamlを開き、Labelの下に先に定義したDeepLinkCommandをバ�
 
 それでは実行して見ましょう。
 
-ボタンを押下するとSelectedItemPageまで一気に遷移し、戻る際にはちゃんと1ページずつ戻っていることが見て取れるかと思います。
+ボタンを押下すると`SelectedItemPage`まで一気に遷移し、戻る際にはちゃんと1ページずつ戻っていることが見て取れるかと思います。
 
 ![](assets/08-01.gif)
 

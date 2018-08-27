@@ -1,23 +1,23 @@
-# TabbedPageを扱う
+# `TabbedPage`を扱う
 
-正確にはTabbedPageだけでなく、CarouselPageを含めた、これらの親クラスに共通する話題です。PrismではこれらのPageでアクティブな子ページが変更されたイベントをハンドルする仕組みが提供されています。
+正確には`TabbedPage`だけでなく、`CarouselPage`を含めた、これらの親クラスに共通する話題です。PrismではこれらのPageでアクティブな子ページが変更されたイベントをハンドルする仕組みが提供されています。
 
-ここではTabbedPageを例に、タブが活性状態の変化をハンドルする方法を解説・実装していきます。
+ここでは`TabbedPage`を例に、タブが活性状態の変化をハンドルする方法を解説・実装していきます。
 
 次の手順で実装していきます。
 
-1. 子PageとそのViewModelを作成する  
-2. TabbedPageの実装クラスを作成する  
-3. MainPageからの画面遷移を実装する  
+1. 子PageとそのViewModelを作成する
+2. `TabbedPage`の実装クラスを作成する
+3. `MainPage`からの画面遷移を実装する
 4. 子Pageでタブが活性状態の変化をハンドリングする
 
-# 子PageとそのViewModelを作成する  
+## 子PageとそのViewModelを作成する  
 
-ChildPage.xamlと、ChildPageViewModel.csをそれぞれViewsフォルダとViewModelsフォルダの下に作成します。
+`ChildPage.xaml`と、`ChildPageViewModel.cs`をそれぞれViewsフォルダとViewModelsフォルダの下に作成します。
 
 ひとまずは、アイテムテンプレートから生成したそのままで問題ありません。
 
-App.xaml.csでDIコンテナへChildPageを登録するのを忘れないようにしましょう。
+`App.xaml.cs`でDIコンテナへ`ChildPage`を登録するのを忘れないようにしましょう。
 
 ```cs
 protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -27,9 +27,9 @@ protected override void RegisterTypes(IContainerRegistry containerRegistry)
 }
 ```
 
-2. TabbedPageの実装クラスを作成する  
+## `TabbedPage`の実装クラスを作成する
 
-Viewsフォルダの下にTabbedPageを継承したMyTabbedPageを作成します。
+Viewsフォルダの下に`TabbedPage`を継承した`MyTabbedPage`を作成します。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -43,15 +43,15 @@ Viewsフォルダの下にTabbedPageを継承したMyTabbedPageを作成しま�
 </TabbedPage>
 ```
 
-Tab AとTab Bの二つのタブを持ち、どちらもChildPageが設定されています。
+Tab AとTab Bの二つのタブを持ち、どちらも`ChildPage`が設定されています。
 
-つづいて、MyTabbedPage.xaml.csを開き親クラスの宣言を削除しましょう。
+つづいて、`MyTabbedPage.xaml.cs`を開き親クラスの宣言を削除しましょう。
 
 ```cs
 public partial class MyTabbedPage // : ContentPage <- この宣言を削除
 ```
 
-Windowsの場合、直接TabbedPageの子クラスを作成できるため、本来必須ではありませんが、Macの場合は一旦ContentPageを作ってから変更する必要があるため、注意が必要です。
+Windowsの場合、直接`TabbedPage`の子クラスを作成できるため、本来必須ではありませんが、Macの場合は一旦`ContentPage`を作ってから変更する必要があるため、注意が必要です。
 
 こちらも先ほどと同様に、DIコンテナへの登録を忘れないようにしましょう。
 
@@ -63,11 +63,11 @@ protected override void RegisterTypes(IContainerRegistry containerRegistry)
 }
 ```
 
-3. MainPageからの画面遷移を実装する  
+## MainPageからの画面遷移を実装する
 
-MainPage.xamlにボタンを追加し、先に作成したNavigateCommandを利用してMyTabbedPageへ遷移するよう実装します。
+`MainPage.xaml`にボタンを追加し、先に作成した`NavigateCommand`を利用してMyTabbedPageへ遷移するよう実装します。
 
-またボタンが表示しきれなくなりますので、StackLayoutをScrollViewで囲います。
+また利用しているEmulatorによってはボタンが表示しきれなくなりますので、`StackLayout`を`ScrollView`で囲います。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -93,9 +93,9 @@ MainPage.xamlにボタンを追加し、先に作成したNavigateCommandを利�
 
 つづいて、タブの活性状態をハンドリングする実装を行います。
 
-具体的にはChildPageにListViewを追加し、タブがアクティブになったら、その時間をListViewに追加していくようにします。
+具体的にはC`hildPage`に`ListView`を追加し、タブがアクティブになったら、その時間を`ListView`に追加していくようにします。
 
-まずはChildPageViewModel.csを開き、次のように実装しましょう。
+まずは`ChildPageViewModel.cs`を開き、次のように実装しましょう。
 
 ```cs
 using Prism.Mvvm;
@@ -127,9 +127,9 @@ namespace PrismHandsOn.ViewModels
 }
 ```
 
-タブの活性状態の切り替えをハンドルするためには、IActiveAwareインターフェースを実装します。
+タブの活性状態の切り替えをハンドルするためには、`IActiveAware`インターフェースを実装します。
 
-IActiveAwareには、IsActiveプロパティと、IsActiveChangedイベントが定義されています。
+`IActiveAware`には、`IsActive`プロパティと、`IsActiveChanged`イベントが定義されています。
 
 ```cs
 public interface IActiveAware
@@ -139,13 +139,13 @@ public interface IActiveAware
 }
 ```
 
-タブの活性状態が変更されると、対象のタブのViewもしくはViewModelにIActiveAwareが実装されていると、そのIsActiveが変更されることで状態変化を通知されます。
+タブの活性状態が変更され、対象のタブのViewもしくはViewModelに`IActiveAware`が実装されていると、その`IsActive`が変更されることで状態変化を通知されます。
 
-先のChildPageViewModelの実装をもう一度確認してみてください。
+先の`ChildPageViewModel`の実装をもう一度確認してみてください。
 
-IsActiveプロパティのsetの中で、IsActiveがtrueに変更されたときにActiveTimesに現在時間を追加するように実装しています。
+`IsActive`プロパティのsetの中で、`IsActive`が`true`に変更されたときに`ActiveTimes`に現在時間を追加するように実装しています。
 
-最後に、このActiveTimesをChildPageにListViewを追加してバインドしましょう。
+最後に、`ChildPage`に`ListView`を追加して`ItemsSource`に`ActiveTimes`をバインドしましょう。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
