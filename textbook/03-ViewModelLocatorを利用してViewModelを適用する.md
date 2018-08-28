@@ -2,20 +2,20 @@
 
 ## 目的  
 
-* ViewModelLocatorを利用してViewへViewModelを自動的にバインドする
+* `ViewModelLocator`を利用してViewへViewModelを自動的にバインドする
 
 Prism for Xamarin.FormsではMVVMパターンを採用しています。このため、Viewには1:1に対応するViewのルートとなるViewModelクラスが必要です。
 
-MainPageに対し、MainPageViewModelを新たに作成し、MainPageのBindingContextプロパティに自動的にバインドすることで、ViewとViewModelのバインディングと通知機構を有効化します。
+`MainPage`に対し、`MainPageViewModel`を新たに作成し、`MainPageのBindingContext`プロパティに自動的にバインドすることで、ViewとViewModelのバインディングと通知機構を有効化します。
 
 ## 手順
 
-1. MainPageViewModelの作成  
+1. `MainPageViewModel`の作成  
 2. ViewModelのプロパティをViewへバインド
 
 ## MainPageViewModelの追加  
 
-ViewModelsフォルダにMainPageViewModel.csを追加し、次のように実装します。
+ViewModelsフォルダに`MainPageViewModel.cs`を追加し、次のように実装します。
 
 ```cs
 namespace PrismHandsOn.ViewModels
@@ -29,23 +29,23 @@ namespace PrismHandsOn.ViewModels
 
 ## ViewModelのプロパティをViewへバインド  
 
-追加したViewModelのMessageプロパティを、MainPageのラベルにバインドします。
+追加したViewModelの`Message`プロパティを、`MainPage`のラベルにバインドします。
 
-変更前のコードではラベルのTextプロパティにはリテラル値が設定されていました。
+変更前のコードではラベルの`Text`プロパティにはリテラル値が設定されていました。
 
 変更前
 ```xml
-	<Label Text="Welcome to Xamarin.Forms!" 
-           VerticalOptions="Center" 
+	<Label Text="Welcome to Xamarin.Forms!"
+           VerticalOptions="Center"
            HorizontalOptions="Center" />
 ```
 
-これをMessageプロパティをバインドするように変更します。
+これを`Message`プロパティをバインドするように変更します。
 
 変更後  
 ```xml
-	<Label Text="{Binding Message}" 
-           VerticalOptions="Center" 
+	<Label Text="{Binding Message}"
+           VerticalOptions="Center"
            HorizontalOptions="Center" />
 ```
 

@@ -1,13 +1,13 @@
-# ITextToSpeechServiceの実装：UWP  
+# `ITextToSpeechService`の実装：UWP  
 
 次の手順で実装します。
 
-1. ITextToSpeechServiceの実装クラスを作成する  
-2. DIコンテナへTextToSpeechServiceを登録する  
+1. `ITextToSpeechService`の実装クラスを作成する
+2. DIコンテナへ`TextToSpeechService`を登録する
 
-## ITextToSpeechServiceの実装クラスを作成する  
+## `ITextToSpeechService`の実装クラスを作成する
 
-PrismHandsOn.UWPプロジェクトにTextToSpeechService.csクラスを作成する  
+PrismHandsOn.UWPプロジェクトに`TextToSpeechService.cs`クラスを作成する
 
 ```cs
 using System;
@@ -31,9 +31,9 @@ namespace PrismHandsOn.UWP
 }
 ```
 
-## DIコンテナへTextToSpeechServiceを登録する  
+## DIコンテナへ`TextToSpeechService`を登録する
 
-PrismHandsOn.UWPプロジェクトのMainPage.xaml.csを開き、コンストラクタの下に内部クラスPlatformInitializerを作成します。  
+PrismHandsOn.UWPプロジェクトの`MainPage.xaml.cs`を開き、コンストラクタの下に内部クラス`PlatformInitializer`を作成します。
 
 ```cs
 private class PlatformInitializer : IPlatformInitializer
@@ -45,9 +45,10 @@ private class PlatformInitializer : IPlatformInitializer
 }
 ```
 
-PlatformInitializerをAppクラスにインジェクションします。MainPage.xaml.csを修正してください。  
+`PlatformInitializer`を`App`クラスにインジェクションします。`MainPage.xaml.cs`を修正してください。
 
-■変更前  
+■変更前
+
 ```cs
 public MainPage()
 {
@@ -58,6 +59,7 @@ public MainPage()
 ```
 
 ■変更後
+
 ```cs
 public MainPage()
 {
